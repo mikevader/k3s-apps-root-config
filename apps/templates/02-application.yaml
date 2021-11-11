@@ -1,0 +1,45 @@
+{{- range $key, $value := .Values.applications -}}
+{{- $disabled := default false .disabled }}
+{{- $server := "https://kubernetes.default.svc" }}
+{{- $path := default $key .path }}
+{{- $source := default false .source }}
+{{- $disableAutoSync := default false .disableAutoSync }}
+{{- $enableHelmKustomize := default false .enableHelmKustomize }}
+{{- $automatedPrune := default true .automatedPrune }}
+{{- $selfHeal := default true .selfHeal }}
+{{- if not $disabled }}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "10"
+    notifications.argoproj.io/subscribe.on-sync-failed.telegram: bal_argo
+    notifications.argoproj.io/subscribe.on-sync-failed.teams: channelName
+  name: {{ $key }}
+  namespace: {{ default "argocd" $.Values.argocdNamespace }}
+spec:
+  destination:
+    namespace: {{ default $key $path }}
+    server: {{ default  $server }}
+  project: {{ $.Release.Name }}
+  source:
+    path: {{ $path }}
+    repoURL: {{ $.Values.repository }}
+{{ if $source -}}
+{{- toYaml $source | indent 4 }}
+{{- end }}
+{{- if $enableHelmKustomize }}
+    plugin:
+      name: kustomized-helm
+{{- end }}
+{{- if not $disableAutoSync }}
+  syncPolicy:
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
+    automated:
+      prune: {{ default true $automatedPrune }}
+      selfHeal: {{ default true $selfHeal }}
+{{- end }}
+{{- end }}
+{{ end }}
