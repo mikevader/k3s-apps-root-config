@@ -1,4 +1,4 @@
 repository: https://github.com/mikevader/k3s-apps-root-config.git
 bootstrap:
  - name: k3s-cluster-infra-apps
- - name: k3s-cluster-resources
+ #- name: k3s-cluster-resources
