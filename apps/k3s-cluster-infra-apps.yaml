@@ -26,4 +26,5 @@ applications:
   cert-manager: {}
   traefik-dashboard: {}
   longhorn: {}
-  monitoring-stack: {}
+  monitoring-stack:
+    disableAutoSync: true
