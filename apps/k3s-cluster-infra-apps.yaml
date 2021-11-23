@@ -28,3 +28,4 @@ applications:
   longhorn: {}
   monitoring-stack:
     disableAutoSync: true
+  plex: {}
