@@ -30,3 +30,4 @@ applications:
     disableAutoSync: true
   jellyfin: {}
   plex: {}
+  opnsense: {}
