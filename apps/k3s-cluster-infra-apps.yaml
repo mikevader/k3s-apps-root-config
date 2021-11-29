@@ -25,7 +25,7 @@ namespaceResourceBlacklist:
 applications:
   cert-manager: {}
   traefik-dashboard: {}
-  longhorn: {}
+  longhorn-system: {}
   monitoring-stack:
     disableAutoSync: true
   jellyfin: {}
