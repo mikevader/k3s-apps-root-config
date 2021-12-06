@@ -26,7 +26,9 @@ applications:
   cert-manager: {}
   traefik-dashboard: {}
   longhorn-system: {}
-  loki: {}
+  loki-stack: {}
+  # promtail: {}
+  # loki: {}
   monitoring-stack:
     disableAutoSync: true
   vault: {}
