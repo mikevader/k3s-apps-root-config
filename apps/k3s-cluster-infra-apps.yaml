@@ -27,7 +27,7 @@ applications:
   traefik-dashboard: {}
   longhorn-system: {}
   loki-stack: {}
-  # promtail: {}
+  promtail: {}
   # loki: {}
   monitoring-stack:
     disableAutoSync: true
