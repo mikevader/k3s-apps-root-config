@@ -33,6 +33,5 @@ applications:
   vault: {}
   secrets-store-csi-driver: {}
   jellyfin: {}
-  plex: 
-    disableAutoSync: true
+  plex: {}
   opnsense: {}
