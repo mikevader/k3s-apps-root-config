@@ -23,6 +23,7 @@ namespaceResourceBlacklist:
 #    kind: 'DaemonSet'
 
 applications:
+  metallb-system: {}
   cert-manager: {}
   traefik-dashboard: {}
   longhorn-system: {}
