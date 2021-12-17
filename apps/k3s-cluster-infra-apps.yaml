@@ -36,3 +36,4 @@ applications:
   jellyfin: {}
   plex: {}
   opnsense: {}
+  uptime-kuma: {}
