@@ -26,7 +26,6 @@ applications:
   metallb-system: {}
   cert-manager: {}
   traefik: {}
-  traefik-dashboard: {}
   longhorn-system: {}
   promtail: {}
   loki: {}
